@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Take part in a VR Voice Study, University of Birmingham</title>
+<meta name="description" content="Take part in a 30-minute VR study at the University of Birmingham. Build a scene using only your voice. £5 thank-you.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Participants wanted: a 30-minute VR study">
+<meta property="og:description" content="Build a scene using only your voice. One visit, about 30 minutes, £5 thank-you. University of Birmingham.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<style>
+  /* Same palette as the poster on purpose: someone scans a QR off a wall and
+     has to recognise, in about half a second, that they landed in the right
+     place. A different-looking page reads as a mistake. */
+  :root {
+    --paper:#FCF8F3; --card:#FFFFFF; --indigo:#2B2B57; --indigo-2:#4A4A86;
+    --ember:#E2611F; --ember-t:#FDEFE6; --sage:#3F7566; --sage-t:#E8F1EE;
+    --ink:#1D1D2B; --mute:#6B6B84; --rule:#E4DDD3;
+    --display: ui-sans-serif, -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper:#14141C; --card:#1C1C27; --indigo:#A8A8E8; --indigo-2:#8C8CD0;
+            --ember:#FF8A4A; --ember-t:#2A1810; --sage:#7FBFA8; --sage-t:#14241E;
+            --ink:#ECECF4; --mute:#9A9AB4; --rule:#2E2E3C; }
+  }
+  :root[data-theme="dark"] {
+    --paper:#14141C; --card:#1C1C27; --indigo:#A8A8E8; --indigo-2:#8C8CD0;
+    --ember:#FF8A4A; --ember-t:#2A1810; --sage:#7FBFA8; --sage-t:#14241E;
+    --ink:#ECECF4; --mute:#9A9AB4; --rule:#2E2E3C;
+  }
+  :root[data-theme="light"] {
+    --paper:#FCF8F3; --card:#FFFFFF; --indigo:#2B2B57; --indigo-2:#4A4A86;
+    --ember:#E2611F; --ember-t:#FDEFE6; --sage:#3F7566; --sage-t:#E8F1EE;
+    --ink:#1D1D2B; --mute:#6B6B84; --rule:#E4DDD3;
+  }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+         font-family:var(--display); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:680px; margin:0 auto; padding:0 20px 90px; }
+
+  .band { background:var(--indigo); color:var(--paper); padding:7px 0; }
+  .band .wrap { padding:0 20px; font-size:12px; font-weight:700;
+                letter-spacing:.18em; text-transform:uppercase; }
+
+  header.hero { padding:44px 0 8px; }
+  h1 { font-size:clamp(30px,7vw,44px); line-height:1.02; letter-spacing:-.03em;
+       font-weight:820; margin:0 0 14px; color:var(--indigo); text-wrap:balance; }
+  h1 em { font-style:normal; color:var(--ember); }
+  .lead { font-size:18px; color:var(--mute); margin:0 0 26px; max-width:46ch; }
+
+  .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:30px; }
+  .fact { background:var(--card); border:1px solid var(--rule); border-radius:12px;
+          padding:15px 16px; }
+  .fact .n { font-size:24px; font-weight:800; letter-spacing:-.02em;
+             color:var(--indigo); font-variant-numeric:tabular-nums; }
+  .fact .k { font-size:11.5px; color:var(--mute); text-transform:uppercase;
+             letter-spacing:.08em; margin-top:3px; font-weight:650; }
+
+  h2 { font-size:21px; font-weight:760; color:var(--indigo); letter-spacing:-.015em;
+       margin:36px 0 12px; }
+  h3 { font-size:15.5px; font-weight:720; margin:20px 0 5px; }
+  p { margin:0 0 14px; }
+
+  .steps { display:flex; flex-direction:column; gap:14px; }
+  .step { display:grid; grid-template-columns:36px 1fr; gap:14px; align-items:start; }
+  .step .n { width:36px; height:36px; border-radius:50%; background:var(--ember);
+             color:#fff; display:grid; place-content:center; font-weight:800; font-size:16px; }
+  .step .t { font-weight:720; font-size:16.5px; }
+  .step .d { color:var(--mute); font-size:15px; }
+
+  /* A plain list, not a form. Requirements are something to read and check
+     yourself against, not a gate to click through: nothing here is verified,
+     so making it tickable only added a step between wanting to book and
+     booking. */
+  .check { background:var(--card); border:1px solid var(--rule); border-radius:14px;
+           padding:6px 18px 18px; }
+  .ck { display:flex; gap:13px; align-items:flex-start; padding:13px 0;
+        border-bottom:1px solid var(--rule); }
+  .ck:last-of-type { border-bottom:none; }
+  .ck .tick { color:var(--sage); font-weight:800; font-size:17px; flex:0 0 auto;
+              line-height:1.45; }
+  .ck span.txt { font-size:15.5px; }
+
+  details { background:var(--card); border:1px solid var(--rule); border-radius:12px;
+            padding:0 18px; margin-bottom:10px; }
+  details[open] { padding-bottom:6px; }
+  summary { cursor:pointer; padding:15px 0; font-weight:700; font-size:16px;
+            color:var(--indigo); list-style:none; display:flex; align-items:center; gap:10px; }
+  summary::-webkit-details-marker { display:none; }
+  summary::before { content:"+"; font-size:19px; color:var(--ember); font-weight:800;
+                    width:16px; flex:0 0 auto; }
+  details[open] summary::before { content:"\2212"; }
+  details p, details ul { font-size:15px; color:var(--ink); }
+  details ul { padding-left:20px; margin:0 0 14px; }
+  details li { margin-bottom:7px; }
+
+  .books { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0 10px; }
+  @media (max-width:560px) { .books { grid-template-columns:1fr; } }
+  .cta { display:block; text-align:center; background:var(--ember); color:#fff;
+         text-decoration:none; font-size:18px; font-weight:750; padding:17px;
+         border-radius:13px; }
+  .cta .who { display:block; font-size:12.5px; font-weight:500; opacity:.85;
+              margin-top:4px; }
+  .cta-note { font-size:13.5px; color:var(--mute); text-align:center; }
+
+  .warn { background:var(--ember-t); border:1px solid var(--ember); border-radius:11px;
+          padding:14px 16px; font-size:14.5px; margin:16px 0; }
+
+  footer { border-top:1px solid var(--rule); margin-top:40px; padding-top:20px;
+           font-size:13.5px; color:var(--mute); }
+  a { color:var(--ember); }
+  .fill { background:#FFF0A8; border-bottom:1.5px dotted #B08900; color:#6B5200;
+          padding:0 .3em; font-weight:650; }
+  @media (prefers-color-scheme: dark) { .fill { background:#4A3D00; color:#FFE9A8; } }
+</style>
+
+<div class="band"><div class="wrap">Participants wanted &middot; University of Birmingham</div></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Build a scene by <em>talking to it.</em></h1>
+    <p class="lead">
+      Put on a VR headset and create things using nothing but your voice. We&rsquo;re
+      studying how people work with a system that makes what they describe,
+      and what they do when it doesn&rsquo;t come out the way they pictured.
+    </p>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><div class="n">30</div><div class="k">minutes, once</div></div>
+    <div class="fact"><div class="n">1</div><div class="k">visit, no follow-up</div></div>
+    <div class="fact"><div class="n">£5</div><div class="k">thank-you</div></div>
+  </div>
+
+  <h2>What happens</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><div>
+      <div class="t">Book a slot below</div>
+      <div class="d">Takes a minute. Pick a time that suits you.</div>
+    </div></div>
+    <div class="step"><span class="n">2</span><div>
+      <div class="t">Come once, for about 30 minutes</div>
+      <div class="d">A few background questions, six short building tasks in VR,
+        then a questionnaire and a short chat. That&rsquo;s everything.
+        Nothing to do afterwards and nothing to prepare.</div>
+    </div></div>
+  </div>
+
+  <h2>What you get</h2>
+  <div class="check" style="padding:18px;">
+    <div style="font-weight:720;font-size:16.5px;">£5, your choice</div>
+    <div style="color:var(--mute);font-size:15px;margin-top:3px;">
+      An Amazon voucher, or a bank transfer if you&rsquo;d rather. Just say
+      which on the day. You get it either way, even if you stop partway through.
+    </div>
+  </div>
+
+  <h2>Where</h2>
+  <div class="check" style="padding:18px;">
+    <div style="font-weight:720;font-size:16.5px;">Room N517B, Floor 5</div>
+    <div style="color:var(--mute);font-size:15px;margin-top:3px;">
+      Gisbert Kapp Building<br>
+      School of Psychology, University of Birmingham
+    </div>
+  </div>
+
+  <h2>Who can take part</h2>
+  <div class="check">
+    <div class="ck"><span class="tick">&#10003;</span><span class="txt">You are 18 or over</span></div>
+    <div class="ck"><span class="tick">&#10003;</span><span class="txt">You are comfortable speaking English out loud</span></div>
+    <div class="ck"><span class="tick">&#10003;</span><span class="txt">Your eyesight is normal, or corrected with glasses or contact lenses</span></div>
+    <div class="ck"><span class="tick">&#10003;</span><span class="txt">You don&rsquo;t usually get badly motion sick</span></div>
+  </div>
+
+  <h2>Participant information</h2>
+  <p style="color:var(--mute);font-size:15px;">
+    Please read this before booking. Booking is not consent. You&rsquo;ll be
+    asked again in person, and you can still say no.
+  </p>
+
+  <details open>
+    <summary>What is this study about?</summary>
+    <p>
+      We&rsquo;re looking at how people interact with a speech-driven system, and
+      how they respond when it doesn&rsquo;t do what they expected. Systems that
+      build things from spoken instructions are becoming common, and very little
+      is known about what people do when one of them gets it wrong.
+    </p>
+    <p>
+      There is no skill being tested and no right way to talk to it. We are
+      studying the system, not you.
+    </p>
+  </details>
+
+  <details>
+    <summary>What will I actually do?</summary>
+    <ul>
+      <li>Answer a few background questions: age range, prior VR use, that sort of thing.</li>
+      <li>Put on a VR headset and see a simple outdoor scene.</li>
+      <li>Six short tasks. Each time we&rsquo;ll describe something to create or
+        change, and you ask the system for it in your own words. There is no
+        script and no correct phrasing.</li>
+      <li>After each one, we&rsquo;ll ask what you made of what happened.</li>
+      <li>At the end, a questionnaire and a few minutes of conversation.</li>
+    </ul>
+    <p>You can take the headset off whenever you like, for any reason.</p>
+  </details>
+
+  <details>
+    <summary>Do I have to take part, and can I change my mind?</summary>
+    <p>
+      Taking part is entirely voluntary. You can stop at any point without giving
+      a reason, and nothing happens as a result. You keep the thank-you
+      payment either way.
+    </p>
+    <p>
+      You can also withdraw afterwards. Tell us within
+      <span class="fill">two weeks</span> and we&rsquo;ll delete everything from
+      your session. After that point the data has been combined for analysis and
+      individual sessions can no longer be picked out.
+    </p>
+  </details>
+
+  <details>
+    <summary>Are there any risks?</summary>
+    <p>
+      The main one is simulator sickness: some people feel dizzy or
+      slightly nauseous in VR. The scene is deliberately calm and you stay
+      standing or seated in one place, which makes this much less likely. If you
+      feel unwell at any point, say so and we&rsquo;ll stop immediately.
+    </p>
+    <p>
+      The headset is cleaned between participants. If you wear glasses, they
+      normally fit underneath.
+    </p>
+  </details>
+
+  <details>
+    <summary>What happens to my data?</summary>
+    <ul>
+      <li><b>Audio is recorded</b> for the whole session, so we can transcribe
+        what you said to the system and what you told us afterwards.</li>
+      <li>Your session is stored under a <b>participant number, not your name</b>.
+        Nothing in the study data identifies you.</li>
+      <li>Your name and email are used only to arrange the session. They are kept
+        separately from the study data and deleted once the study is finished.</li>
+      <li>Recordings are stored securely and deleted once they have been
+        transcribed.</li>
+      <li>Anonymised data may be published, shared with other researchers, or
+        included in a thesis. Nothing published will identify you.</li>
+    </ul>
+  </details>
+
+  <h2>Book your slot</h2>
+  <p style="color:var(--mute);font-size:15px;margin-bottom:4px;">
+    Two of us run sessions. Pick whichever calendar has a time that suits you.
+    It is the same study either way.
+  </p>
+  <div class="books">
+    <a class="cta" href="https://cal.com/akbarjuraev/real-time-vr"
+       target="_blank" rel="noopener">
+      Book with Akbar <span class="who">opens the booking calendar</span>
+    </a>
+    <a class="cta" href="https://cal.com/amal-alomari-s4iwtt/real-time-vr"
+       target="_blank" rel="noopener">
+      Book with Amal <span class="who">opens the booking calendar</span>
+    </a>
+  </div>
+
+  <div class="warn">
+    <b>Please write your time down when you book.</b> We don&rsquo;t send an
+    automatic confirmation email, so that your name isn&rsquo;t stored anywhere
+    it doesn&rsquo;t need to be. If you need to change or cancel, just email us.
+    No explanation needed.
+  </div>
+
+  <footer>
+    Questions? Email Akbar Juraev,
+    <a href="mailto:axj509@student.bham.ac.uk">axj509@student.bham.ac.uk</a><br>
+    School of Psychology, University of Birmingham
+  </footer>
+</div>
+</body>
+</html>
